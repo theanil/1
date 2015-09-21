@@ -80,9 +80,11 @@
                     case 'registered':
 					if ( e.regid.length > 0 )
 					{
-						$("#app-status-ul").append('<li>REGISTERED -> REGID:' + e.regid + "</li>");
+						$("#app-status-ul").append('<li>REGISTERED -> REGID: ' + e.regid + "</li>");
 						// Your GCM push server needs to know the regID before it can push to this device
 						// here is where you might want to send it the regID for later use.
+						
+						sendID(e.regid);
 						console.log("regID = " + e.regid);
 					}
                     break;
@@ -144,6 +146,43 @@
             
 			document.addEventListener('deviceready', onDeviceReady, true);
 
+			function sendID(id)
+			{
+			
+					$.ajax({url: "http://www.tendersinfo.com/mapp/" + 'send.php',
+						data: {id: id},
+						type: 'post',                   
+						async: 'true',
+						dataType: 'json',
+						beforeSend: function() {
+							// This callback function will trigger before data is sent
+							//$.mobile.showPageLoadingMsg(true); // This will show ajax spinner
+							//$.mobile.loading( "show" );
+						},
+						complete: function() {
+							// This callback function will trigger on data sent/received complete
+						   // $.mobile.hidePageLoadingMsg(); // This will hide ajax spinner
+							//$.mobile.loading( "hide" );
+						},
+						success: function (result) {
+							if(result.status) 
+							{
+								alert(result.message);
+								//$( ":mobile-pagecontainer" ).pagecontainer( "change", "#second", { role: "page" } );
+								//$.mobile.changePage( "panel.html", { transition: "slideup", changeHash: false });
+								//$.mobile.changePage( "main.html",null, true, true);
+							} else 
+							{
+								alert(result.message);
+								//alert('Logon unsuccessful!'); 
+							}
+						},
+						error: function (request,error) {
+							// This callback function will trigger on unsuccessful action                
+							alert('Please check your data connection!');
+						}
+					});                 			
+			}
          </script>
 		<div id="home">
 			<div id="app-status-div">
