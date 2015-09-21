@@ -39,7 +39,7 @@
 		      $("#app-status-ul").append('<li>registering ' + device.platform + '</li>');
                 	if (device.platform == 'android' || device.platform == 'Android' || device.platform == 'amazon-fireos' ) 
 					{
-						pushNotification.register(successHandler, errorHandler, {"senderID":"note-project-1060","ecb":"onNotification"});		// required!
+						pushNotification.register(successHandler, errorHandler, {"senderID":"802746433745","ecb":"onNotification"});		// required!
 					} else 
 					{
                     	pushNotification.register(tokenHandler, errorHandler, {"badge":"true","sound":"true","alert":"true","ecb":"onNotificationAPN"});	// required!
@@ -138,11 +138,11 @@
             }
 			
             function successHandler (result) {
-                $("#app-status-ul").append('<li>success:'+ result +'</li>');
+                $("#app-status-ul").append('<li>success: '+ result +'</li>');
             }
             
             function errorHandler (error) {
-                $("#app-status-ul").append('<li>error:'+ error +'</li>');
+                $("#app-status-ul").append('<li>error: '+ error +'</li>');
             }
             
 			document.addEventListener('deviceready', onDeviceReady, true);
@@ -188,7 +188,7 @@
 		<div id="home">
 			<div id="app-status-div">
 				<ul id="app-status-ul">
-					<li>Cordova PushNotification Plugin Demo</li>
+					<li>Push Test</li>
 				</ul>
 			</div>
 		</div>
