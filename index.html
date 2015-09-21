@@ -37,10 +37,11 @@
 				{ 
                 	pushNotification = window.plugins.pushNotification;
 		      $("#app-status-ul").append('<li>registering ' + device.platform + '</li>');
-                	if (device.platform == 'android' || device.platform == 'Android' ||
-                            device.platform == 'amazon-fireos' ) {
-			pushNotification.register(successHandler, errorHandler, {"senderID":"AIzaSyAIsRdlAJ-k_3zw5X19PAY7MOcHaav8p4s","ecb":"onNotification"});		// required!
-					} else {
+                	if (device.platform == 'android' || device.platform == 'Android' || device.platform == 'amazon-fireos' ) 
+					{
+						pushNotification.register(successHandler, errorHandler, {"senderID":"note-project-1060","ecb":"onNotification"});		// required!
+					} else 
+					{
                     	pushNotification.register(tokenHandler, errorHandler, {"badge":"true","sound":"true","alert":"true","ecb":"onNotificationAPN"});	// required!
                 	}
                 }
