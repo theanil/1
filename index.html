@@ -188,7 +188,35 @@
 
     // Show a custom alertDismissed
     //
-    function showAlert() {
+		function callback()
+		{
+		}
+		
+		function showMessage(message, callback, title, buttonName)
+		{
+
+        title = title || "default title";
+        buttonName = buttonName || 'OK';
+
+        if(navigator.notification && navigator.notification.alert){
+
+            navigator.notification.alert(
+                message,    // message
+                callback,   // callback
+                title,      // title
+                buttonName  // buttonName
+            );
+
+        }else{
+
+            alert(message);
+            callback();
+        }
+
+    }
+	
+    function showAlert() 
+	{
         navigator.notification.alert(
             'You are the winner!',  // message
             alertDismissed,         // callback
@@ -204,7 +232,7 @@
 					<li>Push Test</li>
 				</ul>
 			</div>
-			<a href="#" onclick="showAlert(); return false;">Show Alert</a>
+			<a href="#" onclick="showMessage('The input is too high.',null,'Warning','Warning'); return false;">Show Alert</a>
 		</div>
     </body>
 </html>
