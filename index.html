@@ -36,7 +36,7 @@
 				try 
 				{ 
                 	pushNotification = window.plugins.pushNotification;
-		      $("#app-status-ul").append('<li>registering ' + device.platform + '</li>');
+					$("#app-status-ul").append('<li>registering ' + device.platform + '</li>');
                 	if (device.platform == 'android' || device.platform == 'Android' || device.platform == 'amazon-fireos' ) 
 					{
 						pushNotification.register(successHandler, errorHandler, {"senderID":"802746433745","ecb":"onNotification"});		// required!
@@ -74,7 +74,7 @@
             
             // handle GCM notifications for Android
             function onNotification(e) {
-                $("#app-status-ul").append('<li>EVENT -> RECEIVED:' + e.event + '</li>');
+                $("#app-status-ul").append('<li>EVENT -> RECEIVED: ' + e.event + '</li>');
                 
                 switch( e.event )
                 {
@@ -168,14 +168,10 @@
 						success: function (result) {
 							if(result.status) 
 							{
-								alert(result.message);
-								//$( ":mobile-pagecontainer" ).pagecontainer( "change", "#second", { role: "page" } );
-								//$.mobile.changePage( "panel.html", { transition: "slideup", changeHash: false });
-								//$.mobile.changePage( "main.html",null, true, true);
+								//alert(result.message);
 							} else 
 							{
-								alert(result.message);
-								//alert('Logon unsuccessful!'); 
+								//alert(result.message);
 							}
 						},
 						error: function (request,error) {
