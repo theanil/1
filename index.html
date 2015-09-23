@@ -181,12 +181,30 @@
 					});                 			
 			}
          </script>
+		 <script>
+		 function alertDismissed() {
+            // do something
+        }
+
+    // Show a custom alertDismissed
+    //
+    function showAlert() {
+        navigator.notification.alert(
+            'You are the winner!',  // message
+            alertDismissed,         // callback
+            'Game Over',            // title
+            'Done'                  // buttonName
+        );
+    }
+
+	</script>
 		<div id="home">
 			<div id="app-status-div">
 				<ul id="app-status-ul">
 					<li>Push Test</li>
 				</ul>
 			</div>
+			<a href="#" onclick="showAlert(); return false;">Show Alert</a>
 		</div>
     </body>
 </html>
