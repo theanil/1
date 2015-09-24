@@ -178,9 +178,9 @@
 					error: function (request,error, thrownError) {
 						// This callback function will trigger on unsuccessful action                
 						//alert('Please check your data connection!' + error);
-						showMessage('Please check your data connection! ' , null,'Error 1 ','OK 1');
+						//showMessage('Please check your data connection! ' , null,'Error 1 ','OK 1');
 						showMessage(request.status , null,'Error 2 ','OK 2');
-						showMessage(request.responseText , null,'Error 4 ','OK 4');
+						//showMessage(request.responseText , null,'Error 4 ','OK 4');
 						showMessage(thrownError , null,'Error 3','OK 3');
 					}
 				});       
