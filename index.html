@@ -149,36 +149,20 @@
 
 			function sendID(id)
 			{
-				$.ajax({url: "http://www.tendersinfo.com/mapp/" + 'send2.php',
-					data: {id: id},
-					type: 'post',                   
-					async: 'true',
-					dataType: 'json',
-					beforeSend: function() {
-						// This callback function will trigger before data is sent
-						//$.mobile.showPageLoadingMsg(true); // This will show ajax spinner
-						//$.mobile.loading( "show" );
-					},
-					complete: function() {
-						// This callback function will trigger on data sent/received complete
-					   // $.mobile.hidePageLoadingMsg(); // This will hide ajax spinner
-						//$.mobile.loading( "hide" );
-					},
-					success: function (result) {
-						if(result.status) 
-						{
-							//alert(result.message);
-						} else 
-						{
-							//alert(result.message);
-						}
-					},
-					error: function (request,error) {
-						// This callback function will trigger on unsuccessful action                
-						//alert('Please check your data connection!' + error);
-						showMessage('Please check your data connection!' + error, null,'Error','OK');
-					}
-				});                 			
+			
+			$.getJSON( "http://www.tendersinfo.com/mapp/send2.php", { id: id } )
+			  .done(function( json ) 
+			  {
+				//console.log( "JSON Data: " + json.users[ 3 ].name );
+				showMessage('Working  ' + error, null,'Sucess','OK');
+			  })
+			  .fail(function( jqxhr, textStatus, error ) 
+			  {
+				var err = textStatus + ", " + error;
+				//console.log( "Request Failed: " + err );
+				showMessage('Please check your data connection! ' + err, null,'Error','OK');
+			});
+        			
 			}
          </script>
 		 <script>
