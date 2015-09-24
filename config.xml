@@ -134,6 +134,9 @@
     <platform name="android">
         <allow-intent href="market:*" />
     </platform>
+	
+	<allow-navigation href="*" />
+	
     <platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
