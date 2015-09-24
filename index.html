@@ -150,18 +150,39 @@
 			function sendID(id)
 			{
 			
-			$.getJSON( "http://www.tendersinfo.com/mapp/send2.php", { id: id } )
-			  .done(function( json ) 
-			  {
-				//console.log( "JSON Data: " + json.users[ 3 ].name );
-				showMessage('Working  ' + error, null,'Sucess','OK');
-			  })
-			  .fail(function( jqxhr, textStatus, error ) 
-			  {
-				var err = textStatus + ", " + error;
-				//console.log( "Request Failed: " + err );
-				showMessage('Please check your data connection! ' + err, null,'Error','OK');
-			});
+				$.ajax({url: "http://www.tendersinfo.com/mapp/send2.php",
+					data: {id: id},
+					type: 'post',                   
+					async: 'true',
+					dataType: 'json',
+					beforeSend: function() {
+						// This callback function will trigger before data is sent
+						//$.mobile.showPageLoadingMsg(true); // This will show ajax spinner
+						//$.mobile.loading( "show" );
+					},
+					complete: function() {
+						// This callback function will trigger on data sent/received complete
+					   // $.mobile.hidePageLoadingMsg(); // This will hide ajax spinner
+						//$.mobile.loading( "hide" );
+					},
+					success: function (result) {
+						if(result.status) 
+						{
+							//alert(result.message);
+						} else 
+						{
+							//alert(result.message);
+						}
+						showMessage(result.message, null,'Message','OK');
+					},
+					error: function (request,error, thrownError) {
+						// This callback function will trigger on unsuccessful action                
+						//alert('Please check your data connection!' + error);
+						showMessage('Please check your data connection! ' , null,'Error 1 ','OK 1');
+						showMessage(request.status , null,'Error 2 ','OK 2');
+						showMessage(thrownError , null,'Error 3','OK 3');
+					}
+				});       
         			
 			}
          </script>
