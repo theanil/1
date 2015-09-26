@@ -47,7 +47,7 @@
     -->
 
     <!-- Plugins -->
-	<gap:plugin name="com.phonegap.plugins.pushplugin" version="2.5.0" source="npm" />
+	<gap:plugin name="com.phonegap.plugins.pushplugin" version="2.5.0" />
 	
     <!-- Core plugins -->
     <gap:plugin name="org.apache.cordova.battery-status" source="npm" />
