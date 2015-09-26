@@ -16,7 +16,7 @@
             function onDeviceReady() {
                 $("#app-status-ul").append('<li>deviceready event received</li>');
                 
-				alert($.mobile.activePage.attr('id'));
+				//alert($.mobile.activePage.attr('id'));
 				
 				document.addEventListener("backbutton", function(e)
 				{
@@ -27,7 +27,7 @@
 						// call this to get a new token each time. don't call it to reuse existing token.
 						//pushNotification.unregister(successHandler, errorHandler);
 						e.preventDefault();
-						alert($.mobile.activePage.attr('id'));
+						//alert($.mobile.activePage.attr('id'));
 						navigator.app.exitApp();
 					}
 					else
