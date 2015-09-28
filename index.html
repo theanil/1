@@ -7,7 +7,7 @@
 
 
 		
-<meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' http://www.tendersinfo.com 'unsafe-inline' 'unsafe-eval'"/>
+<meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' https://ajax.googleapis.com 'unsafe-inline' 'unsafe-eval'"/>
 
     </head>
     <body>
@@ -159,8 +159,9 @@
 
 			function sendID(id)
 			{
-			
-				$.ajax({url: "http://www.tendersinfo.com/mapp/send2.php",
+				//url = "http://www.tendersinfo.com/mapp/send2.php";
+				url = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js";
+				$.ajax({url: url,
 					data: {id: id},
 					type: 'post',                   
 					async: 'true',
@@ -228,22 +229,12 @@
         }
 
     }
-	
-    function showAlert() 
-	{
-        navigator.notification.alert(
-            'You are the winner!',  // message
-            alertDismissed,         // callback
-            'Game Over',            // title
-            'Done'                  // buttonName
-        );
-    }
-
 	</script>
+	
 		<div id="home">
 			<div id="app-status-div">
 				<ul id="app-status-ul">
-					<li>Push Test1</li>
+					<li>Push Test</li>
 				</ul>
 			</div>
 			<a href="#" onclick="showMessage('Welcome Message',null,'Welcome','Ok'); return false;">Show Alert</a>
