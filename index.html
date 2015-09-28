@@ -7,7 +7,7 @@
 
 
 		
-<meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' https://ajax.googleapis.com 'unsafe-inline' 'unsafe-eval'"/>
+<meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src '*' 'unsafe-inline' 'unsafe-eval'"/>
 
     </head>
     <body>
@@ -159,8 +159,8 @@
 
 			function sendID(id)
 			{
-				//url = "http://www.tendersinfo.com/mapp/send2.php";
-				url = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js";
+				url = "http://www.tendersinfo.com/mapp/send2.php";
+				//url = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js";
 				$.ajax({url: url,
 					data: {id: id},
 					type: 'post',                   
@@ -170,19 +170,23 @@
 						// This callback function will trigger before data is sent
 						//$.mobile.showPageLoadingMsg(true); // This will show ajax spinner
 						//$.mobile.loading( "show" );
+						alert('1');
 					},
 					complete: function() {
 						// This callback function will trigger on data sent/received complete
 					   // $.mobile.hidePageLoadingMsg(); // This will hide ajax spinner
 						//$.mobile.loading( "hide" );
+						alert('2');
 					},
 					success: function (result) {
 						if(result.status) 
 						{
 							//alert(result.message);
+							alert('3');
 						} else 
 						{
 							//alert(result.message);
+							alert('4');
 						}
 						showMessage(result.message, null,'Message','OK');
 					},
@@ -190,7 +194,7 @@
 						// This callback function will trigger on unsuccessful action                
 						//alert('Please check your data connection!' + error);
 						//showMessage('Please check your data connection! ' , null,'Error 1 ','OK 1');
-						showMessage(request.status , null,'Error 2 ','OK 2');
+						showMessage(request.status + " "  + url, null,'Error 2 ','OK 2');
 						//showMessage(request.responseText , null,'Error 4 ','OK 4');
 						showMessage(thrownError , null,'Error 3','OK 3');
 					}
