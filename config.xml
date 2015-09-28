@@ -135,7 +135,6 @@
   <allow-intent href="geo:*"/>
   
     <access origin="*"/>
-	<access origin="*://*.tendersinfo.com/*" subdomains="true" />	
 	<allow-navigation href="http://*/*" />
 	<allow-intent href="*" />
 	
